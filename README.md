@@ -20,6 +20,8 @@ Paths are generated from arithmetic and space-filling sequences (prime gaps, nes
 | `scripts/mandelbulb_core.py` | Shared primitives: escape test, surface sampling, signal utilities, densification |
 | `scripts/mandelbulb_arithmetic_paths.py` | Z_p prime-compression and Pythagorean radical-tower paths over a Mandelbulb |
 | `scripts/pathfilling.py` | Six path modes (fibonacci, hilbert, spiral, pythagorean, zp, all) over Mandelbulb or Fermat surfaces |
+| `scripts/padic_drift.py` | p-adic packet drift: valuation, Teichmüller label, and drift depth over digit windows |
+| `scripts/padic_viz.py` | Drift visualisation — line plot and heatmap of C_p(n, L) over prime and Pythagorean sequences |
 
 ## Requirements
 
@@ -47,6 +49,13 @@ python scripts/pathfilling.py --surface-type fermat --fermat-degree 6 --path-mod
 ```
 
 Both scripts support `--help` for a full argument listing.
+
+**p-adic packet drift:**
+```bash
+python scripts/padic_viz.py
+python scripts/padic_viz.py --p 5 --L 4 --sequence-length 80
+python scripts/padic_viz.py --p 3 --max-L 8 --save outputs/padic_drift.png --no-show
+```
 
 ## Output images
 
