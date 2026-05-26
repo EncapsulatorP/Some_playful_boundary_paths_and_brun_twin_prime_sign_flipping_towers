@@ -39,7 +39,7 @@ Uses `log(p - 1)` as a compression proxy for the prime `p`, with prime gaps modu
 
 ## Key observations
 
-- **Polyline length as a coverage proxy**: `pathfilling.py` reports path length `L` in the legend. A larger `L` for the same number of control points generally indicates better coverage, though it also depends on how evenly the length is distributed.
+- **Polyline length as a coverage proxy**: `scripts/pathfilling.py` reports path length `L` in the legend. A larger `L` for the same number of control points generally indicates better coverage, though it also depends on how evenly the length is distributed.
 
 - **Fibonacci dominates for uniform coverage**: Among the paths, Fibonacci sphere ordering consistently produces the most uniform scatter. The Hilbert path approaches similar uniformity only at order 5+, which multiplies point count by 4×.
 

@@ -22,10 +22,10 @@ Surfaces
 
 Examples
 --------
-python pathfilling.py
-python pathfilling.py --path-mode hilbert --hilbert-order 5
-python pathfilling.py --surface-type fermat --fermat-degree 6 --path-mode all
-python pathfilling.py --path-mode all --save pathfill.png --no-show
+python scripts/pathfilling.py
+python scripts/pathfilling.py --path-mode hilbert --hilbert-order 5
+python scripts/pathfilling.py --surface-type fermat --fermat-degree 6 --path-mode all
+python scripts/pathfilling.py --path-mode all --save outputs/pathfill.png --no-show
 """
 
 from __future__ import annotations

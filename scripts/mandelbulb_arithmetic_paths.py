@@ -14,9 +14,9 @@ as structured paths over a Mandelbulb-like body.
 
 Examples
 --------
-python mandelbulb_arithmetic_paths.py
-python mandelbulb_arithmetic_paths.py --save bulb.png --no-show
-python mandelbulb_arithmetic_paths.py --surface-samples 1400 --power 8
+python scripts/mandelbulb_arithmetic_paths.py
+python scripts/mandelbulb_arithmetic_paths.py --save outputs/bulb.png --no-show
+python scripts/mandelbulb_arithmetic_paths.py --surface-samples 1400 --power 8
 """
 
 from __future__ import annotations
