@@ -329,6 +329,6 @@ If (T(N)) has structure after controlling for the Hardy–Littlewood singular se
 
 **This plan turns the working note into living, modular, cross-linked infrastructure that strengthens both `boundaries_paths` and your broader Collatz / spectral / number-theoretic research program.**
 
-Ready when you are. We can move extremely fast on Phase 0. Just say "go" or specify any adjustments to scope, structure, or priorities. 
+
 
 *EncapsulatorP style preserved: focused, reproducible, honest, dangerous (in the best sense), and designed for rapid iteration.*
