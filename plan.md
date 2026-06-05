@@ -6,7 +6,7 @@
 
 ---
 
-## 1. Recommendation & Rationale
+## 1. Recommendation & Rationale of next steps
 
 **Integrate into `EncapsulatorP/boundaries_paths`.**
 
