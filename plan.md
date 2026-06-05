@@ -170,6 +170,138 @@ This keeps the existing fractal/path work untouched while adding a clean, self-c
 - Add org-level discoverability (topics, short description in repo About).
 
 ---
+Yes — **Goldbach oscillations are known**, but I would be careful with the word **tetration**.
+
+What is known in standard number theory is not “tetration oscillators” as a named object. The known object is closer to:
+
+[
+R(n)=\sum_{a+b=n}\Lambda(a)\Lambda(b)
+]
+
+and the oscillation of its cumulative error around the expected Hardy–Littlewood main term. Mossinghoff and Trudgian study exactly this kind of oscillation: under RH,
+
+[
+\sum_{n\le x}R(n)
+=================
+
+## \frac{x^2}{2}
+
+4x^{3/2}G(x)
++
+O(x^{1+\epsilon}),
+]
+
+where (G(x)) is built from the nontrivial zeros of (\zeta(s)), and they prove that (G(x)) oscillates above and below explicit thresholds infinitely often. ([arXiv][1])
+
+So the clean translation is:
+
+**Known:** Goldbach has zeta-zero / circle-method oscillations.
+**Your layer:** tetration/power-tower diagnostics may be a nonlinear way to compress or expose those oscillations.
+**Not known:** Goldbach is governed by repunit tetration constants or a hidden tetration (L)-function.
+
+In terms of Goldbach itself, it means this:
+
+| Level                                | Meaning                                                               |
+| ------------------------------------ | --------------------------------------------------------------------- |
+| Representation count (G(N)=#{p+q=N}) | The actual Goldbach object. Needs to stay positive.                   |
+| Hardy–Littlewood baseline            | Expected average shape, including local prime congruence corrections. |
+| Residual / error                     | Where oscillations live.                                              |
+| Tower/tetration diagnostic           | Possible detector for structure inside the residual.                  |
+| Goldbach counterexample              | Much stronger: the count becomes exactly (0).                         |
+
+Your Mertens/Skewes instinct is not lame — it is actually the right analogy **for the residual**, not for the conjecture directly.
+
+A Skewes-like Goldbach event would be something like:
+
+[
+E(x)=\sum_{n\le x}R(n)-\frac{x^2}{2}
+]
+
+or a normalized Goldbach residual changes sign only after a huge height. That kind of thing is plausible and already has relatives in the literature through explicit formulas and zeta-zero oscillations. But a **Goldbach crash** would mean an even number with no prime-pair representation, and that is much harder. The binary Goldbach conjecture remains unproven, but it has been computationally verified up to (4\cdot10^{18}). ([ResearchGate][2])
+
+So I would phrase your dream version as:
+
+> “Maybe there is a Skewes/Mertens-like delayed sign-change phenomenon in the normalized Goldbach residual, and ranked tower diagnostics might expose where the residual changes regime.”
+
+That is reasonable.
+
+I would **not** phrase it as:
+
+> “Goldbach may fail at giant tetration height.”
+
+That is much weaker mathematically, because the known oscillations are error-term oscillations, not evidence of disappearance of representations.
+
+For your **ranked power towers decomposition**, I would keep it connected, but only in a quarantined diagnostic role:
+
+| Component                       |    Keep connected? | Why                                                                              |
+| ------------------------------- | -----------------: | -------------------------------------------------------------------------------- |
+| Ranked power towers             |                Yes | Good for scale hierarchy: (N,\log N,\log\log N), tower depth, compression ranks. |
+| Goldbach residuals              |                Yes | This is the correct target.                                                      |
+| Repuinit/repunits (1.11) branch | Maybe / quarantine | Interesting boundary-residue gauge, but tunable unless derived from prime data.  |
+| Brun / Collatz closeness        |         Quarantine | Nice boundary-residue coincidence, not a Goldbach mechanism yet.                 |
+| Hidden (L)-function claim       |            Not yet | Needs a defined Dirichlet/generating object, Euler product, or spectral formula. |
+
+The way to save the repunit part is not to hard-code (1.11). Instead, derive the base from Goldbach data:
+
+[
+c_N = 1 + |\varepsilon(N)|
+]
+
+or
+
+[
+c_N = 1 + \frac{1}{\log N}
+]
+
+or
+
+[
+c_N = 1 + \left|\frac{R(N)-R_{\mathrm{HL}}(N)}{R_{\mathrm{HL}}(N)}\right|.
+]
+
+Then run your tower map on (c_N). If the tower boundary residual predicts future Goldbach residual spikes better than simple controls like (\log N), wheel class, and singular series, then you have a real diagnostic.
+
+So my honest answer:
+
+**Do not disconnect it fully. But demote repunits from “cause” to “boundary probe.”**
+
+The strong architecture becomes:
+
+[
+\text{Goldbach count}
+\rightarrow
+\text{Hardy--Littlewood baseline}
+\rightarrow
+\text{normalized residual}
+\rightarrow
+\text{ranked tower decomposition}
+\rightarrow
+\text{boundary/tetration oscillator diagnostic}.
+]
+
+That is clean. It lets your tower idea survive without pretending it proves Goldbach.
+
+The best next object to define is probably:
+
+[
+\varepsilon(N)
+==============
+
+\frac{R(N)-R_{\mathrm{HL}}(N)}
+{R_{\mathrm{HL}}(N)}
+]
+
+then your tower diagnostic:
+
+[
+T(N)=\mathcal L_{\partial}(1+|\varepsilon(N)|).
+]
+
+If (T(N)) has structure after controlling for the Hardy–Littlewood singular series, then your repunit/residual machinery is not empty. If it disappears after those controls, it belongs in the aesthetic/quarantine appendix.
+
+[1]: https://arxiv.org/abs/2006.14742?utm_source=chatgpt.com "The size of oscillations in the Goldbach conjecture"
+[2]: https://www.researchgate.net/publication/267166169_Empirical_verification_of_the_even_Goldbach_conjecture_and_computation_of_prime_gaps_up_to_410_18?utm_source=chatgpt.com "Empirical verification of the even Goldbach conjecture and ..."
+
 
 ## 5. Validation, Quality & Philosophical Guardrails
 
