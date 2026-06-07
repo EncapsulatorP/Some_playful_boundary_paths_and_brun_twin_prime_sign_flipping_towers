@@ -283,13 +283,12 @@ L_tower(1.11) ~= L_Brun
 L_Collatz is nearby but weaker
 ```
 
-# Truncation
+# Truncation approach
 
-Alright — I’ll make this **finite**, **right-associated**, and with **explicit sign rules** so it’s actually computable.
 
 ## 1) “Euler theta” tetration with alternating exponent signs (2 starts negative vs positive)
 
-I’m interpreting “Euler teta/theta” as the classical **Jacobi theta** value
+Considere “Euler teta/theta” as the classical **Jacobi theta** value
 [
 a_n=\theta_3(0,q_n),\quad q_n=e^{-\pi n},\quad \theta_3(0,q)=\sum_{k\in\mathbb Z} q^{k^2},
 ]
