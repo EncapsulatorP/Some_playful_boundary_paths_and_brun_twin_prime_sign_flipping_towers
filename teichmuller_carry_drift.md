@@ -1,5 +1,4 @@
 # Scope 
-Yes. We can define it exactly.
 
 Let your carry-wheel produce a digit-position window at rank (n). Call the integer packet:
 
