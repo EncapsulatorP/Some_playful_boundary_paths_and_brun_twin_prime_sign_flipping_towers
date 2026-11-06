@@ -12,15 +12,23 @@ SERIES_COEFFICIENTS = (1.0, -0.5, -4.0 / 3.0, 7.0 / 8.0, 14.0 / 5.0)
 
 
 def log_base(c: float) -> float:
+    if isinstance(c, bool) or not math.isfinite(float(c)) or float(c) <= 1:
+        raise ValueError("base must be finite and greater than 1")
     return math.log(float(c))
 
 
 def lower_step(c: float, y: float) -> float:
-    return float(c) ** (-(float(c) ** float(y)))
+    L = log_base(c)
+    if not math.isfinite(y) or not 0 <= y <= 1:
+        raise ValueError("lower-branch state must lie in [0,1]")
+    return math.exp(-L * math.exp(L * y))
 
 
 def upper_step(c: float, z: float) -> float:
-    return float(c) ** (float(c) ** (-float(z)))
+    L = log_base(c)
+    if not math.isfinite(z) or z < 1:
+        raise ValueError("upper-branch state must be finite and >= 1")
+    return math.exp(L * math.exp(-L * z))
 
 
 def lower_fixed_point(
@@ -54,7 +62,10 @@ def upper_fixed_point(
 
 
 def tower_residue(c: float) -> float:
-    return upper_fixed_point(c).value - 1.0
+    result = upper_fixed_point(c)
+    if not result.converged:
+        raise ArithmeticError("tower fixed point did not converge")
+    return result.value - 1.0
 
 
 def upper_fixed_point_series(c: float, *, order: int = 5) -> float:
