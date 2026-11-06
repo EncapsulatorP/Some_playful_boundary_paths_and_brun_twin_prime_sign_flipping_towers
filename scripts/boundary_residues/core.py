@@ -48,10 +48,18 @@ def iterate_fixed_point(
 ) -> FixedPointResult:
     """Iterate ``step`` until convergence or iteration exhaustion."""
 
+    if isinstance(max_iter, bool) or not isinstance(max_iter, int) or max_iter < 1:
+        raise ValueError("max_iter must be a positive integer")
+    if not math.isfinite(tol) or tol <= 0:
+        raise ValueError("tol must be finite and positive")
     value = float(start)
+    if not math.isfinite(value):
+        raise ValueError("start must be finite")
     delta = math.inf
     for iteration in range(1, max_iter + 1):
         next_value = float(step(value))
+        if not math.isfinite(next_value):
+            raise ArithmeticError("non-finite fixed-point iterate")
         delta = abs(next_value - value)
         value = next_value
         if delta <= tol:
